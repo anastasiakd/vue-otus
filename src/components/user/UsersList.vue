@@ -1,21 +1,28 @@
 <template>
-    <div class="users">
-        <div class="title">
-            <h2>Список пользователей</h2>
+    <base-page class="users">
+        <template #title>
+            <div class="users-title">
+                <h2>Список пользователей</h2>
 
-            <div class="link" @click="showUsers = !showUsers">
-                {{ showUsers ? 'Скрыть' : 'Показать' }}
+                <div class="link" @click="showUsers = !showUsers">
+                    {{ showUsers ? 'Скрыть' : 'Показать' }}
+                </div>
             </div>
-        </div>
+        </template>
 
         <div v-show="showUsers" class="users-list">
-            <UsersListItem v-for="user in users" :key="user.id" :user="user" />
+            <UsersListItem
+                v-for="user in users"
+                :key="user.id"
+                :user="user"
+            />
         </div>
-    </div>
+    </base-page>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import {ref} from 'vue';
+import BasePage from '../base/BasePage.vue';
 import UsersListItem from './UsersListItem.vue';
 
 const users = [
@@ -70,12 +77,7 @@ const showUsers = ref(true);
 
 <style lang="scss" scoped>
 .users {
-    margin: 2rem auto;
-    max-width: 40rem;
-    min-width: 21rem;
-    width: 80%;
-
-    .title {
+    &-title {
         align-items: center;
         display: flex;
         justify-content: space-between;
