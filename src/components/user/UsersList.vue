@@ -4,13 +4,19 @@
             <div class="users-title">
                 <h2>Список пользователей</h2>
 
-                <div class="link" @click="showUsers = !showUsers">
+                <div
+                    class="link"
+                    @click="showUsers = !showUsers"
+                >
                     {{ showUsers ? 'Скрыть' : 'Показать' }}
                 </div>
             </div>
         </template>
 
-        <div v-show="showUsers" class="users-list">
+        <div
+            v-show="showUsers"
+            class="users-list"
+        >
             <UsersListItem
                 v-for="user in users"
                 :key="user.id"

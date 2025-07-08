@@ -6,19 +6,18 @@
 
 <script setup>
 import {shallowRef, provide} from 'vue';
-import UsersList from './components/user/UsersList.vue';
-import ProductsList from './components/product/ProductsList.vue';
+import components from './components';
 
 const pages = [
     {
         key: 'users',
         title: 'Пользователи',
-        component: UsersList,
+        component: components.user.UsersList,
     },
     {
         key: 'products',
         title: 'Товары',
-        component: ProductsList,
+        component: components.product.ProductsList,
     },
 ];
 
