@@ -3,7 +3,7 @@
         title="Список товаров"
         class="products"
     >
-        <base-loader v-if="showLoader"/>
+        <base-loader v-if="showLoader" />
 
         <div
             v-else
