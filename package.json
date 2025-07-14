@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "-": "^0.0.1",
+    "@primeuix/themes": "^1.2.1",
+    "primevue": "^4.3.6",
     "sass": "^1.89.0",
     "sass-loader": "^16.0.5",
     "vue": "^3.5.13"
