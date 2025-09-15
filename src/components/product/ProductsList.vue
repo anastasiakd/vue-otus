@@ -5,16 +5,17 @@
     >
         <base-loader v-if="showLoader" />
 
-        <div
-            v-else
-            class="products-list"
-        >
-            <products-list-item
-                v-for="product in products"
-                :key="product.id"
-                :product="product"
-            />
-        </div>
+        <template v-else>
+            <ProductListSearch/>
+
+            <div class="products-list">
+                <products-list-item
+                    v-for="product in products"
+                    :key="product.id"
+                    :product="product"
+                />
+            </div>
+        </template>
     </base-page>
 </template>
 
@@ -22,6 +23,7 @@
 import {ref} from 'vue';
 import BasePage from '../base/BasePage.vue';
 import BaseLoader from '../base/BaseLoader.vue';
+import ProductListSearch from './ProductListSearch.vue';
 import ProductsListItem from './ProductsListItem.vue';
 import API from './api.js';
 
