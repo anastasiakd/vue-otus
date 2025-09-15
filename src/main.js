@@ -4,9 +4,12 @@ import PrimeVue from 'primevue/config';
 import Aura from '@primeuix/themes/aura';
 
 import './assets/sass/style.scss';
+import router from './router';
 import App from './App.vue';
 
 const app = createApp(App);
+
+app.use(router);
 
 app.use(PrimeVue, {
     theme: {
