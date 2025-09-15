@@ -1,5 +1,8 @@
 <template>
-    <div class="product-item">
+    <div
+        class="product-item"
+        @click="goToDetail"
+    >
         <div class="photo">
             <img
                 :src="product.image"
@@ -28,9 +31,22 @@
 </template>
 
 <script setup>
-defineProps({
+import {useRouter} from 'vue-router';
+
+const props = defineProps({
     product: Object,
-})
+});
+
+const router = useRouter();
+
+function goToDetail() {
+    router.push({
+        name: 'product-detail',
+        params: {
+            id: props.product.id,
+        },
+    })
+}
 </script>
 
 <style scoped lang="scss">

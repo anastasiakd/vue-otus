@@ -1,23 +1,40 @@
 <template>
     <div class="page-menu">
         <div
-            v-for="page in pages"
-            :key="page.key"
+            v-for="item in menu"
+            :key="item.key"
             class="page-menu__item"
-            :class="[{'page-menu__item_active': page.key === activePage}]"
-            @click="setActivePage(page)"
+            :class="[{'page-menu__item_active': item.key === routeName}]"
+            @click="goTo(item)"
         >
-            {{ page.title }}
+            {{ item.title }}
         </div>
     </div>
 </template>
 
 <script setup>
-import {inject} from 'vue';
+import {computed} from 'vue';
+import {useRoute, useRouter} from 'vue-router';
 
-const pages = inject('pages');
-const activePage = inject('activePage');
-const setActivePage = inject('setActivePage');
+const menu = [
+    {
+        key: 'users',
+        title: 'Пользователи',
+    },
+    {
+        key: 'products',
+        title: 'Товары',
+    },
+];
+
+const route = useRoute();
+const router = useRouter();
+
+const routeName = computed(() => route.name);
+
+function goTo(item) {
+    router.push({name: item.key});
+}
 </script>
 
 <style scoped lang="scss">
